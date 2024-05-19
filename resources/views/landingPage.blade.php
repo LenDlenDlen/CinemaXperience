@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="{{ asset('css/landingPage.css') }}">
-</head>
-<body>
-    <div class="navbar">
-        <div class="logo">
-            <a href="/"><img src="{{ asset('assets/logo.png') }}" alt="LOGO CINEMAXPERIENCE"></a>
-        </div>
-        <div class="sign-up">Sign Up</div>
-    </div>
+@extends('layouts.master')
 
+@section('title', 'Landing Page')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/landingPage.css') }}">
+@endsection
+
+@section('content')
+
+@if(session()->has('success'))
+<div style="display: flex; justify-content: center; align-items :center">
+    <div class="alert alert-success alert-dismissible fade show custom-alert-success" style="width: 20rem" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+</div>
+@endif
+
+@if(session()->has('loginError'))
+<div style="display: flex; justify-content: center; align-items :center">
+    <div class="alert alert-danger alert-dismissible fade show custom-alert-login-error" style="width: 20rem" role="alert">
+        {{ session('loginError') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+</div>
+@endif
+
+<div class="main-content">
     <div class="hero-section">
         <div class="photo photo-1"></div>
         <div class="photo photo-2"></div>
@@ -23,51 +35,49 @@
             <h1 class="animate">Discover, Watch, Repeat.</h1>
             <p>Enter your email to start</p>
             <form class="email-form" method="POST">
-                <input type="email" placeholder="Email Address">
-                <button type="submit">Login</button>
+                <input type="email" placeholder="Email Address" id="email-before">
+                <button>Login</button>
             </form>
         </div>
-    </div>
 
-    <div class="footer">
-        <div class="footer-left">
-            <div class="footer-left-img">
-                <img src="assets/logo.png" alt="LOGO">
-            </div>
-            <div class="footer-left-text">
-                &copy Copyright 2024 by CinemaXperience. All Rights Reserved.
-            </div>
-        </div>
-        <div class="footer-mid">
-            <div class="mid-1">
-                <ul>
-                    <li>FAQ</li>
-                    <li>Ways to Watch</li>
-                    <li>Help Center</li>
-                </ul>
-            </div>
-            <div class="mid-2">
-                <ul>
-                    <li>Jobs</li>
-                    <li>Privacy</li>
-                    <li>Account</li>
-                </ul>
-            </div>
-            <div class="mid-3">
-                <ul>
-                    <li>Terms of Use</li>
-                    <li>Contact Us</li>
-                    <li>Cookie Preferences</li>
-                </ul>
+        <div id="loginModal" class="login-modal" style="display:none;">
+            <div class="login-container">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <h2>Log In</h2>
+                <form method="POST" action="/login">
+                    @csrf
+                    <input class="email" name="email" type="email" placeholder="Email" id="email-after">
+                    <input class="password" name="password" type="password" placeholder="Password" >
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe" style="color: white">Remember Me</label>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
             </div>
         </div>
-        <div class="footer-right">
-            <p>Follow Us</p>
-            <a href="https://www.facebook.com/"><img src="assets/footer/fb.png" alt="FB"></a>
-            <a href="https://www.twitter.com/"><img src="assets/footer/x.png" alt="X"></a>
-            <a href="https://www.instagram.com/"><img src="assets/footer/ig.png" alt="IG"></a>
-            <a href="https://www.youtube.com/"><img src="assets/footer/yt.png" alt="YT"></a>
-        </div>
+
+
     </div>
-</body>
-</html>
+</div>
+<script>
+    function openModal() {
+        document.getElementById('loginModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginButton = document.querySelector('.email-form button');
+        loginButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email-before').value;
+            document.getElementById('email-after').value = email;
+            openModal();
+        });
+    });
+</script>
+
+@endsection

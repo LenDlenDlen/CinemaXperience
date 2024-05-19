@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->integer('age')->unsigned();
             $table->string('email', 50)->unique();
-            $table->string('password', 50);
+            $table->string('password');
+            $table->date('dob');
             $table->binary('profile_picture')->nullable();
+            $table->enum('role', ['admin', 'member', 'non-member'])->default('non-member');
             $table->rememberToken();
             $table->timestamps();
         });

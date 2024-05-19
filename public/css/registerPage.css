@@ -1,93 +1,32 @@
-body {
-    margin: 0;
-    background-color: #262422;
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-/* overlay */
 .overlay {
-    background-color: rgb(0, 0, 0, 0.1);
-    z-index: 100;
-    /* display: flex; */
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(38, 36, 34, 0.9);
+    z-index: 4;
+    flex: 1;
 }
 
-/* navbar */
-.navbar {
+.main-content {
     display: flex;
-    justify-content: space-between;
-    padding: 0.75rem;
-    /* background-image: linear-gradient(to bottom, black, #262422); */
-    height: 5rem;
-    background-color: #131211;
-    z-index: 1000;
-    /* position: sticky; */
-}
-
-.logo img {
-    width: 100%;
-    height: 100%;
-}
-
-.sign-up {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    background-color: #ffd717;
-    padding: 1rem 2rem;
-    margin: 1.5rem 2rem;
-    text-align: center;
-    border-radius: 15px;
-    font-weight: 900;
-    font-size: large;
-}
-
-/* herosection */
-.herosection {
-    position: relative;
-}
-
-.registerpopup {
-    background-color: rgb(35, 33, 33, 0.7);
-    z-index: 200;
-    display: flex;
-    justify-content: center;
-    border: #ffd717;
-    border-style: solid;
-    border-width: 2px;
-    position: absolute;
-    top: 25%;
-    left: 30%;
-    height: 45rem;
-    width: 40rem;
-    border-radius: 15px;
-}
-
-.registerheader {
-    position: absolute;
-    top: 10%;
-    text-align: center;
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-}
-.photoAtas {
+    flex-direction: column;
     margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    height: 40vh;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    z-index: 50;
 }
 
-.photoBawah {
+.hero-section-1,
+.hero-section-2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    height: 40vh;
+    height: 20rem;
     position: relative;
-    z-index: 50;
+    width: 100%;
 }
 
 .photo {
@@ -124,112 +63,103 @@ body {
         url("../assets/landingPage/aos.jpeg") center/cover no-repeat;
 }
 
-.identity-form {
+.register-container {
+    padding: 0 2rem 2rem 2rem;
+    position: absolute;
+    z-index: 99;
+    background-color: rgba(38, 36, 34, 0.8);
+    height: auto;
+    width: auto;
+    border: 3px #ffd717 solid;
+    border-radius: 0.5rem;
+    min-width: 20rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
+
+.register-container h2 {
+    color: white;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
 .name {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
-.identity-form input {
-    padding: 0.5rem;
-    font-size: 1.25rem;
-    font-weight: bold;
+.name input {
+    flex: 1;
+}
+
+.first {
+    margin-right: 0.5rem;
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    background-color: #878787;
+    opacity: 1;
+    height: 2rem;
+    margin-bottom: 0.5rem;
     border: none;
-    border-radius: 8px;
-    width: 25rem;
-    display: block;
-    background-color: rgba(135, 135, 135, 0.6);
+    border-radius: 0.7rem;
+    color: white;
 }
 
-.identity-form button {
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 8px;
-    background-color: #ffd717;
-    cursor: pointer;
+::placeholder {
+    padding-left: 1rem;
+    color: white;
+    opacity: 0.5;
     font-weight: bold;
-    width: 26rem;
-}
-.identity-form p {
-    color: rgba(135, 135, 135, 0.6);
-    font-weight: bold;
-    position: relative;
-    left: -6rem;
 }
 
-.checkbox {
+.CB-TC {
+    background-color: transparent;
+    width: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; */
+    border: 1px solid white;
+    height: 1rem;
+}
+
+.tc {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    left: -5rem;
+    margin-top: 10px;
 }
-.checkbox label {
+
+.tc span {
     color: white;
+    font-weight: bold;
 }
 
-/* Footer */
-.footer {
-    display: flex;
-    z-index: 1000;
-    justify-content: space-between;
-    padding: 0.75rem;
-    background-color: black;
-    height: 6rem;
-    margin-top: 15rem;
-    margin-bottom: 0;
-}
-
-.footer-left {
-    display: block;
-    padding-left: 0.5rem;
-}
-
-.footer-left-text {
-    color: white;
-    font-size: small;
-    font-size: 0.75rem;
-}
-
-.footer-left-img {
-    width: 8rem;
-    height: 5rem;
-}
-.footer-left img {
+.register-btn {
+    color: black;
+    height: 3rem;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-color: #ffd717;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
 }
 
-.footer-mid {
-    margin-right: 5rem;
-    justify-content: space-between;
-    display: flex;
-    color: white;
+.register-container span {
+    color: rgba(255, 255, 255, 0.5);
 }
-
-.footer-mid ul {
-    list-style-type: none;
-}
-
-.footer-mid ul li {
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-}
-
-.footer-right {
-    margin-right: 10rem;
-    color: white;
-}
-
-.footer-right img {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: white;
+.register-container span a {
+    color: rgba(253, 215, 23, 0.7);
 }
