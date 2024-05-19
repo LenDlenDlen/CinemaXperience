@@ -40,6 +40,51 @@ class UserSeeder extends Seeder
             'role' => 'non-member',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
+        ],
+        [
+            'name' => 'Nico Jere',
+            'email' => 'nico@gmail.com',
+            'password' => bcrypt('nico123'),
+            'dob' => Carbon::now()->subYear(20),
+            'role' => 'member',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ],
+        [
+            'name' => 'Dellon Dlenz',
+            'email' => 'dellon@gmail.com',
+            'password' => bcrypt('dellon123'),
+            'dob' => Carbon::now()->subYear(20),
+            'role' => 'non-member',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ],
+        [
+            'name' => 'Selika Princess',
+            'email' => 'selika@gmail.com',
+            'password' => bcrypt('selika123'),
+            'dob' => Carbon::now()->subYear(20),
+            'role' => 'admin',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ],
+        [
+            'name' => 'Bas Harrie',
+            'email' => 'bas@gmail.com',
+            'password' => bcrypt('bas123'),
+            'dob' => Carbon::now()->subYear(20),
+            'role' => 'non-member',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ],
+        [
+            'name' => 'Dian To',
+            'email' => 'dian@gmail.com',
+            'password' => bcrypt('dian123'),
+            'dob' => Carbon::now()->subYear(20),
+            'role' => 'member',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]
     ]);
     }
