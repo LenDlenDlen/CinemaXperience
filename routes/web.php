@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/logout', [LoginController::class, 'logout']);
 
 
+
 Route::middleware('guest')->group(function(){
     Route::get('/', [LoginController::class, 'showLandingPage'])->name('login');
 
