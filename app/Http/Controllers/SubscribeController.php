@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class SubscribeController extends Controller
 {
-    public function showSubscriptionPage()
+    public function show()
     {
         return view('users.subscriptionPage');
     }

@@ -28,6 +28,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
 Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('user.home');
     Route::get('/user/dashboard', [DashboardController::class, 'showProfileDashboard'])->name('user.dashboard');
-    Route::get('/subscription', [SubscribeController::class, 'showSubscriptionPage'])->name('subscription');
+    Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
     
 });
