@@ -25,7 +25,7 @@
 .package-container .plan-card{
     width: 442px;
     height: 500px;
-    margin: 0 10px; /* Jarak antara elemen-elemen */
+    margin: 0 20px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     color: #FFFFFF;
