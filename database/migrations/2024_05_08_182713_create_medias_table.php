@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description', 255);
             $table->float('rating', 10);
             $table->binary('poster');
+            $table->boolean('isPremium')->default(false);
             $table->date('released_date');
             $table->timestamps();
         });
