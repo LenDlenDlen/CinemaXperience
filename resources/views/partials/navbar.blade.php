@@ -35,7 +35,7 @@
             </div>
 
             @elseif (auth()->user()->role === 'non-member')
-                <div class="subscribe"><a href="#">Subscribe</a></div>
+                <div class="subscribe"><a href="{{ route('subscription') }}">Subscribe</a></div>
             @endif
         @endauth
     </div>
