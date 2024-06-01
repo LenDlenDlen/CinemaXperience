@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/partials/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partials/footer.css') }}">
+
     @yield('css')
     <style>
         html,
@@ -25,9 +26,13 @@
 
         body {
             background-color: #262422;
-            font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+            /* font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; */
+            font-family: 'Inter', sans-serif;
         }
     </style>
+
+    @vite('resources/css/app.css')
+
 </head>
 <body>
     @include('partials.navbar')

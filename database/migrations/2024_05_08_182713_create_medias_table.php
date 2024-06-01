@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('title', 50);
             $table->string('description', 255);
             $table->float('rating', 10);
-            $table->binary('poster');
+            $table->text('poster');
             $table->boolean('isPremium')->default(false);
             $table->date('released_date');
+            $table->integer('season')->nullable();
+            $table->integer('duration')->nullable();
             $table->timestamps();
         });
     }

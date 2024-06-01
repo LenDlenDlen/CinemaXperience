@@ -26,6 +26,7 @@
 </div>
 @endif
 
+
 <div class="main-content">
 
     <div class="hero-section">
@@ -96,4 +97,4 @@
     });
 </script>
 
-@endsection 
+@endsection
