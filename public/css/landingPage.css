@@ -8,16 +8,19 @@
     margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    height: 25rem;
+    grid-template-rows: 350px 1fr;
+    height: 29rem;
     position: relative;
     margin-bottom: 2rem;
+    overflow: hidden;
 }
 
 .photo {
     background-size: cover;
-    position: relative;
+    /* position: relative; */
     opacity: 50%;
+    height: auto;
+    width: 33vw;
 }
 
 .photo-1 {
@@ -46,6 +49,24 @@
             rgba(38, 36, 34, 1)
         ),
         url("../assets/landingPage/aos.jpeg") center/cover no-repeat;
+}
+
+.photo-4 {
+    background: linear-gradient(
+            to left,
+            rgba(38, 36, 34, 0),
+            rgba(38, 36, 34, 1)
+        ),
+        url("../assets/HomePage/Qot.jpg") center/cover no-repeat;
+}
+
+.photo-5 {
+    background: linear-gradient(
+            to left,
+            rgba(38, 36, 34, 0),
+            rgba(38, 36, 34, 1)
+        ),
+        url("../assets/HomePage/DOTS.jpg") center/cover no-repeat;
 }
 
 .hero-content {
@@ -196,3 +217,18 @@ input[type="checkbox"] {
 .custom-alert-login-error {
     background-color: red;
 } */
+
+.Scrolling_Background{
+    width: 100%;
+    display: inline-flex;
+    animation: 27s scrolling infinite linear;
+}
+
+@keyframes scrolling{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}

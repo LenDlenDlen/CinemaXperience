@@ -27,10 +27,26 @@
 @endif
 
 <div class="main-content">
+
     <div class="hero-section">
+
+        <div class="Scrolling_Background">
         <div class="photo photo-1"></div>
         <div class="photo photo-2"></div>
         <div class="photo photo-3"></div>
+        <div class="photo photo-4"></div>
+        <div class="photo photo-5"></div>
+        </div>
+        
+        <div class="Scrolling_Background">
+        <div class="photo photo-1"></div>
+        <div class="photo photo-2"></div>
+        <div class="photo photo-3"></div>
+        <div class="photo photo-4"></div>
+        <div class="photo photo-5"></div>
+        </div>
+        
+
         <div class="hero-content">
             <h1 class="animate">Discover, Watch, Repeat.</h1>
             <p>Enter your email to start</p>
