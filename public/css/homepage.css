@@ -1,4 +1,4 @@
-.hero-section{
+.hero-section {
     display: flex;
     /* position: relative; */
     gap: 3rem;
@@ -6,41 +6,41 @@
     margin-top: 1rem;
 }
 
-#card{
-    position: relative; 
+#card {
+    position: relative;
     display: inline-block;
     overflow: visible;
-    transition: margin-bottom 0,5s ease;
+    transition: margin-bottom 0, 5s ease;
     margin-bottom: 2rem;
 }
 
-#card img{
+#card img {
     border-radius: 7px;
     width: 2 rem;
     height: 3 rem;
 }
 
-.photo{
+.photo {
     width: 14rem;
     height: 16rem;
     overflow: hidden;
 }
 
-.photo img{
+.photo img {
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease;
-    object-fit:cover;
+    object-fit: cover;
 }
 
-.TopTitle{
-    border-left: 4px solid #FFD717;
-    color:white;
+.TopTitle {
+    border-left: 4px solid #ffd717;
+    color: white;
     padding-left: 5px;
     margin-left: 0.6rem;
 }
-  
-.title{
+
+.title {
     position: absolute;
     z-index: -10;
     bottom: 0;
@@ -54,7 +54,7 @@
     transition: transform 0.6s ease, opacity 1s ease;
 }
 
-.border{
+.border {
     border-radius: 2px;
     color: gray;
     opacity: 20%;
@@ -69,4 +69,5 @@
 
 #card:hover img {
     transform: scale(1.05);
+    cursor: pointer;
 }
