@@ -13,7 +13,7 @@
     <div class="main-content">
 
         <div class="register-container">
-           <h2>Register Your Account</h2>
+           <h2 class="mt-3">Register Your Account</h2>
 
            @if ($errors->any())
                @foreach ($errors->all() as $error)
@@ -23,11 +23,11 @@
 
            <form method="POST" action="{{ route('register') }}">
             @csrf
-               <div class="name">
+               <div class="name mb-3">
                    <input type="text" name="first_name" placeholder="First Name" class="first" value="{{ old('first_name') }}">
                    <input type="text" name="last_name" placeholder="Last Name" class="last" value="{{ old('last_name') }}">
                </div>
-               <div class="credentials">
+               <div class="credentials ">
                    <input type="date" name="dob" value="{{ old('dob') }}">
                    <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                    <input type="password" name="password" placeholder="Password">

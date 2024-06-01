@@ -26,6 +26,7 @@
 </div>
 @endif
 
+
 <div class="main-content">
     <div class="hero-section">
         <div class="photo photo-1"></div>
@@ -80,4 +81,4 @@
     });
 </script>
 
-@endsection 
+@endsection
