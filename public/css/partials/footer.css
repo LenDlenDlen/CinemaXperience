@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 0.75rem;
     background-color: black;
-    height: 7rem;
+    /* height: 7rem; */
 }
 
 .footer-left {
@@ -30,9 +30,10 @@
 }
 
 .footer-mid {
-    margin-right: 5rem;
+    /* margin-right: 5rem; */
     justify-content: space-between;
     display: flex;
+    gap: 2rem;
     color: white;
 }
 
@@ -54,4 +55,9 @@
     width: 1.5rem;
     height: 1.5rem;
     color: white;
+}
+
+.footer-right a {
+    display: inline-block;
+    margin-right: 0.3rem;
 }

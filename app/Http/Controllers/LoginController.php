@@ -9,6 +9,21 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
+    public function handle()
+    {
+        if (auth()->check()) {
+            if(Auth::user()->role === 'admin'){
+                return redirect()->route('admin.dashboard');
+            }
+            else{
+
+                return redirect()->route('user.home');
+            }
+        }
+
+        return redirect('/login');
+    }
+
     public function showLandingPage(){
         return view('landingPage');
     }
@@ -19,13 +34,14 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
+        $remember = $request->has('remember');
+
+        if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
 
             if(Auth::user()->role === 'admin'){
                 return redirect()->route('admin.dashboard');
-            }
-            else{
+            } else {
                 return redirect()->route('user.home');
             }
         };

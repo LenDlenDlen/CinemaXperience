@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('series_id');
-            $table->foreign('series_id')->references('series_id')->on('series')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('medias_id');
+            $table->foreign('medias_id')->references('id')->on('medias')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('duration');
             $table->string('title', 50);
             $table->integer('episode_number');

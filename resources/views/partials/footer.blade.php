@@ -31,9 +31,9 @@
         </div>
     </div>
     <div class="footer-right">
-        <p>Follow Us</p>
+        <p class="mb-3 mt-1">Follow Us</p>
         <a href="https://www.facebook.com/"><img src="{{ asset('assets/footer/fb.png') }}" alt="FB"></a>
-        <a href="https://www.twitter.com/"><img src="{{ asset('assets/footer/x.png') }}" alt="X"></a>
+        <a href="https://www.twitter.com/"><img src="{{ asset('assets/footer/x.jpg') }}" alt="X"></a>
         <a href="https://www.instagram.com/"><img src="{{ asset('assets/footer/ig.png') }}" alt="IG"></a>
         <a href="https://www.youtube.com/"><img src="{{ asset('assets/footer/yt.png') }}" alt="YT"></a>
     </div>
