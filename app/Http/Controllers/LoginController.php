@@ -31,16 +31,17 @@ class LoginController extends Controller
     public function authenticate(Request $request){
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|'
+            'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
+        $remember = $request->has('remember');
+
+        if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
 
             if(Auth::user()->role === 'admin'){
                 return redirect()->route('admin.dashboard');
-            }
-            else{
+            } else {
                 return redirect()->route('user.home');
             }
         };

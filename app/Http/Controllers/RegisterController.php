@@ -20,7 +20,8 @@ class RegisterController extends Controller
             'password.required' => 'The password is required.',
             'password.min' => 'The password must be at least 5 characters.',
             'password.max' => 'The password may not be greater than 30 characters.',
-            'password.confirmed' => 'The password confirmation does not match.'
+            'password.confirmed' => 'The password confirmation does not match.',
+            'terms.accepted' => 'You must accept the Terms & Conditions.'
         ];
 
         $request->validate([
@@ -28,7 +29,8 @@ class RegisterController extends Controller
             'last_name' => 'max:120',
             'email' => 'email|required',
             'dob' => 'required',
-            'password' => 'required|min:5|max:30|confirmed'
+            'password' => 'required|min:5|max:30|confirmed',
+            'terms' => 'accepted'
         ], $messages);
 
         $name = $request->first_name . ' ' . $request->last_name;

@@ -35,7 +35,7 @@
 
                </div>
                <div class="tc">
-                <input type="checkbox" class="CB-TC"  {{ old('CB-TC') ? 'checked' : '' }}> <span>I agree with the Terms & Conditions</span>
+                <input type="checkbox" name="terms" class="CB-TC"  {{ old('terms') ? 'checked' : '' }}> <span>I agree with the Terms & Conditions</span>
                </div>
                <button type="submit" class="register-btn">Register</button>
            </form>

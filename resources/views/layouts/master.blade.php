@@ -37,7 +37,9 @@
 <body>
     @include('partials.navbar')
 
-    @yield('content')
+    <div class="content flex-grow">
+        @yield('content')
+    </div>
 
     @include('partials.footer')
 

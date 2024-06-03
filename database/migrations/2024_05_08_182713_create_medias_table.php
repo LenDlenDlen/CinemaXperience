@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('poster');
             $table->boolean('isPremium')->default(false);
             $table->date('released_date');
+            $table->text('source');
             $table->integer('season')->nullable();
             $table->integer('duration')->nullable();
             $table->timestamps();
