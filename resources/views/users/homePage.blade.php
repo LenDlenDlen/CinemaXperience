@@ -4,13 +4,40 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+
 @endsection
 
 @section('content')
-
-    <div class="carousel">
-        <h1 style = "color:white">INI BUAT TOP 10 TODAY -> CAROUSEL</h1>
+<h3 class="TopTitle" >Trending Watches</h3>
+    <div id="carousel">
+        <div class="slider">
+          <div class="item">
+            <img src="assets/HomePage/EOY.jpg" alt="" />
+            <p class = info >Queen Of Tears</p>
+          </div>
+          <div class="item">
+            <img src="assets/HomePage/Qot.jpg" alt="" />
+            <p class = info>Queen Of Tears</p>
+          </div>
+          <div class="item">
+            <img src="assets/HomePage/WYWS.jpg" alt="" />
+            <p class = info>Queen Of Tears</p>
+          </div>
+          <div class="item">
+            <img src="assets/HomePage/obs.jpg" alt="" />
+            <p class = info>Queen Of Tears</p>
+          </div>
+          <div class="item">
+            <img src="assets/HomePage/EOY.jpg" alt="" />
+            <p class = info>Queen Of Tears</p>
+          </div>
+          <button id="next">></button>
+          <button id="prev"><</button>
+        </div>
+        
     </div>
+   
+   
 
     <div class="border"></div>
 
@@ -54,6 +81,8 @@
 
     </div>
 
+    <div class="border"></div>
+
     <h3 class="TopTitle" >Anngap Saja Action Drama</h3>
     <div class="hero-section">
     @foreach ($medias as $media)
@@ -71,5 +100,57 @@
     </div>
 
     <div class="border"></div>
+
+    // javascript for carousel
+
+    <script>
+    let items = document.querySelectorAll(".slider .item");
+    let next = document.getElementById("next");
+    let prev = document.getElementById("prev");
+
+    let active = 2;
+    function loadShow() {
+    let stt = 0;
+    items[active].style.transform = `scale(1)`;
+    items[active].style.zIndex = 1;
+    items[active].style.filter = "none";
+    items[active].style.opacity = 1;
+    for (var i = active + 1; i < items.length; i++) {
+        stt++;
+        items[i].style.transform = `translateX(${120 * stt}px) scale(${
+        1 - 0.2 * stt
+        })`;
+        items[i].style.zIndex = -stt;
+        items[i].style.filter = "blur(5px)";
+        items[i].style.opacity = stt > 2 ? 0 : 0.6;
+    }
+    stt = 0;
+    for (var i = active - 1; i >= 0; i--) {
+        stt++;
+        items[i].style.transform = `translateX(${-120 * stt}px) scale(${
+        1 - 0.2 * stt
+        })`;
+        items[i].style.zIndex = -stt;
+        items[i].style.filter = "blur(5px)";
+        items[i].style.opacity = stt > 2 ? 0 : 0.6;
+    }
+    }
+    loadShow();
+    next.onclick = function () {
+    // active = active + 1 < items.length ? active + 1 : active;
+    active = (active + 1) % items.length;
+    loadShow();
+    };
+    prev.onclick = function () {
+    // active = active - 1 >= 0 ? active - 1 : active;
+    if(active == 0){
+        active = items.length - 1;
+    }else{
+        active--;
+    }
+    loadShow();
+    };
+    </script>
+
 
 @endsection

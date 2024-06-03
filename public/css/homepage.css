@@ -1,13 +1,15 @@
 .hero-section {
-    display: flex;
-    /* position: relative; */
+    display:flex;
+    position:relative;
+    flex-wrap: wrap;
     gap: 3rem;
     margin-left: 1.25rem;
     margin-top: 1rem;
+    
 }
 
 #card {
-    position: relative;
+    position:relative;
     display: inline-block;
     overflow: visible;
     transition: margin-bottom 0, 5s ease;
@@ -15,15 +17,14 @@
 }
 
 #card img {
-    border-radius: 7px;
-    width: 2 rem;
-    height: 3 rem;
+    border-radius: 0.5rem;
 }
 
 .photo {
     width: 14rem;
     height: 16rem;
     overflow: hidden;
+    border-radius: 0.5rem;
 }
 
 .photo img {
@@ -71,3 +72,85 @@
     transform: scale(1.05);
     cursor: pointer;
 }
+
+/* UNTUK CAROUSEL */ 
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .item {
+    position: absolute;
+    overflow: hidden;
+    width: 40rem;
+    height: 20rem;
+    justify-items: center;
+    text-align: justify;
+    border-radius: 0.5rem;
+    /* padding: 20px; */
+    transition: transform 0.5s;
+    left: calc(50% -125px);
+    /* top: auto; */
+  }
+
+  .item img {
+    object-fit:cover;
+  }
+
+  .item .info{
+    position: absolute;
+    justify-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.2rem;
+    font-weight: 900;
+    opacity: 0;
+    color: white;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+
+  .item:hover img {
+    filter: blur(8px);
+    opacity: 1;
+    
+}
+
+.item:hover p{
+    /* transform: translateY(-100%); */
+    opacity: 1;
+    
+}
+
+  #next,
+  #prev {
+    position: absolute;
+    top: 40%;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    left: 300px;
+  }
+  #next {
+    left: unset;
+    right: 300px;
+  }
+
+  #carousel{
+    min-height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+  }
