@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FriendController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SubscribeController;
-use Illuminate\Support\Facades\Route;
 
 
 
@@ -33,5 +34,6 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('user.home');
     Route::get('/user/dashboard', [DashboardController::class, 'showProfileDashboard'])->name('user.dashboard');
     Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
+    Route::get('/user/friendlist', [FriendController::class, 'showFriends'])->name('user.friendlist');
 
 });
