@@ -8,7 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\WatchMovieController;
-use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -37,6 +37,6 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/dashboard', [DashboardController::class, 'showProfileDashboard'])->name('user.dashboard');
     Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
     Route::get('/user/watch/{id}', [WatchMovieController::class, 'watch'])->name('watch');
-    Route::get('/user/friendlist', [FriendController::class, 'showFriends'])->name('user.friendlist');
+    Route::get('/user/friendlist', [FriendController::class, 'showFriends'])->name('friendlist');
 
 });
