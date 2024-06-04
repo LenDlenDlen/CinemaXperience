@@ -42,8 +42,6 @@
     </div>
 
     <div class="border my-4"></div>
-
-    <h2 class="TopTitle text-2xl font-bold">ONLY FOR MEMBER</h2>
     @if(session()->has('success'))
     <div style="display: flex; justify-content: center; align-items :center">
         <div class="alert alert-success alert-dismissible fade show custom-alert-success" style="width: 20rem" role="alert">
@@ -52,23 +50,30 @@
         </div>
     </div>
     @endif
-    <div class="hero-section flex flex-wrap space-x-1">
-    @foreach ($medias as $media)
-        @if($media->isPremium === 1)
-        <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset('storage/' . $media->poster) }}">
-            <div class="photo">
-                <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
+
+    @auth
+        @if(auth()->user()->role === 'member')
+
+        <h2 class="TopTitle text-2xl font-bold">ONLY FOR MEMBER</h2>
+        <div class="hero-section flex flex-wrap space-x-1">
+        @foreach ($medias as $media)
+            @if($media->isPremium === 1)
+            <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset('storage/' . $media->poster) }}">
+                <div class="photo">
+                    <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
+                </div>
+                <div class="title">
+                    <p>{{ $media->title }}</p>
+                </div>
             </div>
-            <div class="title">
-                <p>{{ $media->title }}</p>
-            </div>
+            @endif
+        @endforeach
         </div>
+        <div class="border my-4"></div>
         @endif
-    @endforeach
-    </div>
+    @endauth
 
 
-    <div class="border my-4"></div>
 
 <h2 class="TopTitle text-2xl font-bold">Recently Watched</h2>
 <div class="hero-section flex flex-wrap space-x-1">
