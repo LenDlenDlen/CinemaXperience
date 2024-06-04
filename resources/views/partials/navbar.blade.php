@@ -1,70 +1,48 @@
-<div id="navbar">
-    <div id="cinemaxperience-logo">
-        <a href="/"><img src="{{ asset('assets/logo.png') }}" alt="LOGO CINEMAXPERIENCE"></a>
-    </div>
-
-    <div class="mid-section">
-        @auth
-            @if(auth()->user()->role === 'admin' )
-            <div class="admin-mid">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ddl-admin" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Movie
-                    </a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Movie Lists</a></li>
-                    <li><a class="dropdown-item" href="#">Add Movie</a></li>
-                    <li><a class="dropdown-item" href="#">Update Movie</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Delete Movie</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle ddl-admin" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      User
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">User Lists</a></li>
-                        <li><a class="dropdown-item" href="#">Add User</a></li>
-                        <li><a class="dropdown-item" href="#">Update User</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Delete User</a></li>
-                    </ul>
-                  </li>
+@auth
+    @if (auth()->user()->role === 'admin')
+        @include('partials.navbar-admin')
+    @else
+        <div id="navbar">
+            <div id="cinemaxperience-logo">
+                <a href="/"><img src="{{ asset('assets/logo.png') }}" alt="LOGO CINEMAXPERIENCE" class="transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"></a>
             </div>
 
-            @elseif (auth()->user()->role === 'non-member')
-                <div class="subscribe"><a href="{{ route('subscription') }}">Subscribe</a></div>
-            @endif
-        @endauth
-    </div>
-    <div class="friendnav">
-        @auth
-        @if(auth()->user()->role === 'admin')
-        @else
-            <div class="friend text-white"><a href="{{ route('friendlist') }}">Friends</a></div>
-        @endif
-        @endauth
-    </div>
+            <div class="mid-section">
+                @if (auth()->user()->role === 'non-member')
+                    <div class="subscribe transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"><a href="{{ route('subscription') }}">Subscribe</a></div>
+                @endif
+            </div>
+            <div class="friendnav">
+                @if (auth()->user()->role !== 'admin')
+                    <div class="friend text-white transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"><a href="{{ route('friendlist') }}">Friends</a></div>
+                @endif
+            </div>
 
-    <div class="ddl">
-        @auth
-            @if(auth()->user()->role === 'admin' )
-                @include('partials.navbar-admin');
-            @elseif (auth()->user()->role === 'member')
-                @include('partials.navbar-member');
-            @else
-                @include('partials.navbar-non-member');
-            @endif
+            <div class="ddl">
+                @if (auth()->user()->role === 'admin')
+                    @include('partials.navbar-admin')
+                @elseif (auth()->user()->role === 'member')
+                    @include('partials.navbar-member')
+                @else
+                    @include('partials.navbar-non-member')
+                @endif
+            </div>
+        </div>
+    @endif
+@endauth
 
-        @else
+@guest
+    <div id="navbar">
+        <div id="cinemaxperience-logo">
+            <a href="/"><img src="{{ asset('assets/logo.png') }}" alt="LOGO CINEMAXPERIENCE"></a>
+        </div>
+
+        <div class="ddl">
             @if (Route::currentRouteName() == 'login')
-                <a href="{{ route('signup') }}"><div class="sign-up">Sign Up</div></a>
+                <a href="{{ route('signup') }}"><div class="sign-up transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">Sign Up</div></a>
             @else
-                <a href="{{ route('login') }}"><div class="sign-up">Login</div></a>
+                <a href="{{ route('login') }}"><div class="sign-up transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">Login</div></a>
             @endif
-        @endauth
+        </div>
     </div>
-
-</div>
+@endguest

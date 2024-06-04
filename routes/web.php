@@ -1,17 +1,17 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\WatchMovieController;
 use App\Http\Controllers\PaymentController;
-
-
-
+use App\Http\Controllers\UserController;
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -30,7 +30,10 @@ Route::middleware('guest')->group(function(){
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
-    Route::get('/admin/dashboard', [DashboardController::class, 'showAdminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'showAdminDashboard'])->name('admin.dashboard');
+    Route::resource('/admin/medias', MediaController::class);
+    Route::get('/admin/users/view', [MediaController::class, 'view'])->name('medias.view');
+    Route::resource('/admin/users', UserController::class);
 });
 
 Route::middleware(['auth', 'role:member,non-member'])->group(function(){
@@ -45,4 +48,5 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
 Route::middleware(['auth', 'role:non-member'])->group(function(){
     Route::get('user/paymentCard', [PaymentController::class, 'card'])->name('card');
     Route::get('user/paymentQris', [PaymentController::class, 'qris'])->name('qris');
+    Route::post('user/payment', [UserController::class, 'userPayment'])->name('payment');
 });
