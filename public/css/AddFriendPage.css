@@ -1,0 +1,35 @@
+/* Tailwind CSS base */
+@import "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css";
+
+/* Custom styles */
+.friend-item {
+    display: flex;
+    align-items: center;
+    background-color: #ffd700;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+    min-width: 15rem;
+}
+
+.friend-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+}
+
+.friend-btn {
+    background-color:  #ffd700;
+    color: rgb(0, 0, 0);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.TopTitle {
+    border-left: 0.6rem solid #ffd717;
+    color: white;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: xx-large;
+    font-weight: bold;
+}

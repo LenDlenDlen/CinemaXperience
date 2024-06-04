@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Friend List')
+@section('title', 'Add Friend')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/friendlist.css') }}">
+<link rel="stylesheet" href="{{ asset('css/AddFriendPage.css') }}">
 @endsection
 
 @section('content')
@@ -14,9 +14,9 @@
             <div class="mb-5">
                 <h2 class="text-lg font-semibold">Friends</h2>
                 <ul>
-                    <li class="my-2"><a href="#">Your Friends</a></li>
-                    <li class="my-2"><a href="#">Add Friends</a></li>
-                    <li class="my-2"><a href="{{route('friendrequests')}}">Pending Requests</a></li>
+                    <li class="my-2"><a href="{{ route('friendlist') }}">Your Friends</a></li>
+                    <li class="my-2"><a href="{{ route('addfriend') }}">Add Friends</a></li>
+                    <li class="my-2"><a href="{{ route('friendrequests') }}">Pending Requests</a></li>
                 </ul>
             </div>
             <div>
@@ -31,18 +31,28 @@
         <div class="garis bg-stone-800 w-2 h- m-12"></div>
         <!-- Main Content -->
         <div class="w-3/4 p-5">
-            
             <div class="mb-10">
-                {{-- <h2 class="text-2xl font-semibold mb-3">Recently Contacted</h2> --}}
                 <h1 class="TopTitle">Add Friend</h1>
-                <input type="text" placeholder="Input Friend">
-                
+                <form action="{{ route('friendsearch') }}" method="GET">
+                    <input type="text" name="search_id" placeholder="Input Friend's ID" required>
+                    <button type="submit" class="friend-btn bg-yellow">Search</button>
+                </form>
+                @if(isset($searchResult))  <!-- ini klo ketemu masuk, tapi klo gaketemu <p> di else ga masuk -->
+                <div class="mt-5">
+                    @if($searchResult)
+                    <p>Found user: {{ $searchResult->name }}</p>
+                    <form action="{{ route('friendrequests.add') }}" method="POST">
+                        @csrf
+                        <input type="hidden" class="text-black" name="friend_id" value="{{ $searchResult->id }}">
+                        <button type="submit" class="friend-btn">Add Friend</button>
+                    </form>
+                    @else
+                    <p class="text-white">No user found with that ID.</p>
+                    @endif
                 </div>
+                @endif
             </div>
         </div>
     </div>
 </div>
-
-
-
 @endsection

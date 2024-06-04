@@ -14,8 +14,8 @@
             <div class="mb-5">
                 <h2 class="text-lg font-semibold">Friends</h2>
                 <ul>
-                    <li class="my-2"><a href="#">Your Friends</a></li>
-                    <li class="my-2"><a href="#">Add Friends</a></li>
+                    <li class="my-2"><a href="{{route('friendlist')}}">Your Friends</a></li>
+                    <li class="my-2"><a href="{{route('addfriend')}}">Add Friends</a></li>
                     <li class="my-2"><a href="{{route('friendrequests')}}">Pending Requests</a></li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
         <div class="garis bg-stone-800 w-2 h- m-12"></div>
         <!-- Main Content -->
         <div class="w-3/4 p-5">
-            
+
             <div class="mb-10">
                 {{-- <h2 class="text-2xl font-semibold mb-3">Recently Contacted</h2> --}}
                 <h1 class="TopTitle">Your Friends</h1>
@@ -50,7 +50,7 @@
                                 <div class="nama text-black font-bold text-base flex text-center items-center w-9/12">
                                     {{$friend->name}}
                                 </div>
-                                
+
                                 <div class="button  ">
                                     <button class="friend-btn">+</button>
                                 </div>

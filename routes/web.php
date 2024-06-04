@@ -46,6 +46,9 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::post('/user/friendrequests/accept/{friendId}', [FriendController::class, 'acceptFriend'])->name('friendrequests.accept');
     Route::post('/user/friendrequests/reject/{friendId}', [FriendController::class, 'rejectFriend'])->name('friendrequests.reject');
     Route::post('/user/friendrequests/cancel/{friendId}', [FriendController::class, 'cancelRequest'])->name('friendrequests.cancel');
+    Route::get('/user/addfriend', [FriendController::class, 'showAddFriendForm'])->name('addfriend');
+    Route::get('/user/friendsearch', [FriendController::class, 'searchFriend'])->name('friendsearch');
+    Route::post('/user/addfriend', [FriendController::class, 'addFriend'])->name('friendrequests.add');
 });
 
 Route::middleware(['auth', 'role:non-member'])->group(function(){

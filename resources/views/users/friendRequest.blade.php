@@ -14,9 +14,9 @@
             <div class="mb-5">
                 <h2 class="text-lg font-semibold">Friends</h2>
                 <ul>
-                    <li class="my-2"><a href="#">Your Friends</a></li>
-                    <li class="my-2"><a href="#">Add Friends</a></li>
-                    <li class="my-2"><a href="#">Pending Requests</a></li>
+                    <li class="my-2"><a href="{{route('friendlist')}}">Your Friends</a></li>
+                    <li class="my-2"><a href="{{route('addfriend')}}">Add Friends</a></li>
+                    <li class="my-2"><a href="{{route('friendrequests')}}">Pending Requests</a></li>
                 </ul>
             </div>
             <div>

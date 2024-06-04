@@ -4,28 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class FriendController extends Controller
 {
-    // public function showFriends()
-    // {
-    //     return view('users.friendList');
-    // }
-
-    // public function authorization()
-    // {
-    //     if(!auth()->check()){
-    //         return redirect('login');
-    //     }
-
-    //     $user = auth()->user();
-    //     // jika status itu accepted dan data yang diambil berdasarkan user id
-    //     // (ambil semua friend_id yang connected ke user_id dari session yang mana statusnya adalah accepted)
-    //     $friends = $user->Friends()->wherePivot(['status', 'accepted'])->get();
-
-    //     return view('users.friendList', compact('friends'));
-
-    // }
 
     public function ShowFriendList()
     {
@@ -68,35 +50,71 @@ class FriendController extends Controller
     public function rejectFriend($friendId)
     {
         $user = auth()->user();
-        \Log::info("Rejecting request: User {$user->id} -> Friend {$friendId}");
-        $user->FriendColumn()->updateExistingPivot($friendId,['status' =>'rejected']);
+        // \Log::info("Rejecting request: User {$user->id} -> Friend {$friendId}");
+        $user->FriendColumn()->updateExistingPivot($friendId,['status' =>'rejected'])->detach($friendId);
         return redirect()->route('friendrequests');
     }
 
     public function cancelRequest($friendId)
     {
         $user = auth()->user();
-        \Log::info("Cancelling request: User {$user->id} -> Friend {$friendId}");
+        // \Log::info("Cancelling request: User {$user->id} -> Friend {$friendId}");
         $user->UserColumn()->detach($friendId);
         return redirect()->route('friendrequests');
 
-        // debugger
-
-        // $user = auth()->user();
-        // echo "Cancelling request from user_id: {$user->id} to friend_id: {$friendId}<br>";
-        // $result = $user->UserColumn()->detach($friendId);
-        // echo "Detach result: ";
-        // var_dump($result);
-        // exit; // Stop execution to see the output
-        // return redirect()->route('friendrequests');
-
-        // $user = auth()->user();
-        // $pivotRow = DB::table('user_friend_lists')->where('id', $pivotId)->first();
-
-        // if ($pivotRow && $pivotRow->user_id == $user->id) {
-        //     user::table('user_friend_lists')->where('id', $pivotId)->delete();
-        // }
-
-        // return redirect()->route('friendrequests');
     }
+
+    public function showAddFriendForm()
+    {
+        if(!auth()->check()){
+            return redirect('login');
+        }
+        return view('users.addFriend');
+    }
+
+    public function searchFriend(Request $request)
+    {
+        $searchId = $request->input('search_id');
+        $searchResult = User::find($searchId);
+
+        if (!$searchResult) {
+            $searchResult = null;
+        }
+
+        return view('users.addFriend', compact('searchResult'));
+    }
+
+    public function addFriend(Request $request)
+    {
+        $user = auth()->user();
+        $friendId = $request->input('friend_id');
+
+        // Check if the user is already friends with the provided ID
+        $existingFriendship = DB::table('user_friend_lists')
+            ->where(function($query) use ($user, $friendId) {
+                $query->where('user_id', $user->id)
+                      ->where('friend_id', $friendId);
+            })
+            ->orWhere(function($query) use ($user, $friendId) {
+                $query->where('user_id', $friendId)
+                      ->where('friend_id', $user->id);
+            })
+            ->first();
+
+        if ($existingFriendship) {
+            return redirect()->back()->with('error', 'You are already friends or have a pending request.');
+        }
+
+        // Add the friend request
+        DB::table('user_friend_lists')->insert([
+            'user_id' => $user->id,
+            'friend_id' => $friendId,
+            'status' => 'pending',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->route('friendrequests')->with('success', 'Friend request sent.');
+    }
+
 }
