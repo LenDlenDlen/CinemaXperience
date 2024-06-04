@@ -38,7 +38,7 @@
         <div class="photo photo-4"></div>
         <div class="photo photo-5"></div>
         </div>
-        
+
         <div class="Scrolling_Background">
         <div class="photo photo-1"></div>
         <div class="photo photo-2"></div>
@@ -46,7 +46,7 @@
         <div class="photo photo-4"></div>
         <div class="photo photo-5"></div>
         </div>
-        
+
 
         <div class="hero-content">
             <h1 class="animate">Discover, Watch, Repeat.</h1>
@@ -66,7 +66,7 @@
                     <input class="email" name="email" type="email" placeholder="Email" id="email-after">
                     <input class="password" name="password" type="password" placeholder="Password" >
                     <div class="checkbox-container">
-                        <input type="checkbox" id="rememberMe">
+                        <input type="checkbox" id="rememberMe" name="remember">
                         <label for="rememberMe" style="color: white">Remember Me</label>
                     </div>
                     <button type="submit" class="login-btn">Login</button>

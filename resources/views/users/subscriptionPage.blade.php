@@ -25,7 +25,7 @@
             <a id="num"> 50 </a>
             <a id="mo"> /mo </a>
         </div>
-        <button class="choose-plan-button"> Choose plan </button>
+        <a href="{{ route('card') }}" class="choose-plan-button"> Choose plan </a>
         <ul>
             <li>Akses ke semua konten standar</li>
             <li>Hanya tersedia untuk 1 perangkat</li>
@@ -41,7 +41,7 @@
             <a id="num"> 100 </a>
             <a id="mo"> /mo </a>
         </div>
-        <button class="choose-plan-button"> Choose plan </button>
+        <a href="{{ route('card') }}" class="choose-plan-button"> Choose plan </a>
         <ul>
             <li>Akses ke semua konten standar</li>
             <li>Akses ke semua konten eksklusif</li>
@@ -58,7 +58,7 @@
             <a id="num"> 150 </a>
             <a id="mo"> /mo </a>
         </div>
-        <button class="choose-plan-button"> Choose plan </button>
+        <a href="{{ route('card') }}" class="choose-plan-button"> Choose plan </a>
         <ul>
             <li>Akses ke semua konten standar</li>
             <li>Akses ke semua konten eksklusif</li>
