@@ -67,6 +67,7 @@
             <li>Streaming dalam resolusi Ultra HD (4K)</li>
         </ul>
     </div>
+
 </div>
 
 @endsection

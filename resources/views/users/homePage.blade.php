@@ -9,7 +9,7 @@
 
 @section('content')
 
-<h3 class="TopTitle" >Trending Watches</h3>
+<h1 class="TopTitle text-2xl font-bold" >Trending Watches</h1>
     <div id="carousel">
         <div class="slider">
           <div class="item">
@@ -38,11 +38,36 @@
 
     </div>
 
+    <div class="border my-4"></div>
+
+    <h2 class="TopTitle text-2xl font-bold">ONLY FOR MEMBER</h2>
+    @if(session()->has('success'))
+    <div style="display: flex; justify-content: center; align-items :center">
+        <div class="alert alert-success alert-dismissible fade show custom-alert-success" style="width: 20rem" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    @endif
+    <div class="hero-section flex flex-wrap space-x-1">
+    @foreach ($medias as $media)
+        @if($media->isPremium === 1)
+        <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset('storage/' . $media->poster) }}">
+            <div class="photo">
+                <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
+            </div>
+            <div class="title">
+                <p>{{ $media->title }}</p>
+            </div>
+        </div>
+        @endif
+    @endforeach
+    </div>
 
 
-<div class="border my-4"></div>
+    <div class="border my-4"></div>
 
-<h3 class="TopTitle">Recently Watched</h3>
+<h2 class="TopTitle text-2xl font-bold">Recently Watched</h2>
 <div class="hero-section flex flex-wrap space-x-1">
     <div id="card" class="cursor-pointer" data-id="6" data-title="Queen of Tears" data-description="Description for Queen of Tears" data-rating="8.5" data-release="2021-12-15" data-image="{{ asset('assets/HomePage/Qot.jpg') }}">
         <div class="photo">
@@ -62,15 +87,17 @@
     </div>
 </div>
 
+
+
 <div class="border my-4"></div>
 
-<h3 class="TopTitle">Korean Drama</h3>
+<h2 class="TopTitle text-2xl font-bold">Korean Drama</h2>
 <div class="hero-section flex flex-wrap space-x-1">
 @foreach ($medias as $media)
     @if($media->genre->contains('genre_type', 'korean-drama'))
-    <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset($media->poster) }}">
+    <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset('storage/' . $media->poster) }}">
         <div class="photo">
-            <img src="{{ asset($media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
+            <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
         </div>
         <div class="title">
             <p>{{ $media->title }}</p>
@@ -82,13 +109,13 @@
 
 <div class="border my-4"></div>
 
-<h3 class="TopTitle">Anggap Saja Action Drama</h3>
+<h2 class="TopTitle text-2xl font-bold">Anggap Saja Action Drama</h2>
 <div class="hero-section flex flex-wrap space-x-1">
 @foreach ($medias as $media)
     @if($media->genre->contains('genre_type', 'action'))
-    <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset($media->poster) }}">
+    <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset('storage/' . $media->poster) }}">
         <div class="photo">
-            <img src="{{ asset($media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
+            <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
         </div>
         <div class="title">
             <p>{{ $media->title }}</p>
@@ -100,13 +127,13 @@
 
 <div class="border my-4"></div>
 
-<h3 class="TopTitle">Melodrama</h3>
+<h2 class="TopTitle text-2xl font-bold">Melodrama</h2>
 <div class="hero-section flex flex-wrap space-x-1">
 @foreach ($medias as $media)
     @if($media->genre->contains('genre_type', 'melodrama'))
-    <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset($media->poster) }}">
+    <div id="card" class="cursor-pointer" data-id="{{ $media->id }}" data-title="{{ $media->title }}" data-description="{{ $media->description }}" data-rating="{{ $media->rating }}" data-release="{{ $media->released_date }}" data-image="{{ asset('storage/' . $media->poster) }}">
         <div class="photo">
-            <img src="{{ asset($media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
+            <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-full">
         </div>
         <div class="title">
             <p>{{ $media->title }}</p>
@@ -171,44 +198,6 @@
         }
     }
 </script>
-    <h3 class="TopTitle" >Korean Drama</h3>
-    <div class="hero-section">
-    @foreach ($medias as $media)
-        @if($media->genre->contains('genre_type', 'korean-drama'))
-        <div id= "card">
-            <div class="photo">
-                    <img src="{{ asset($media->poster) }}" alt="aos">
-            </div>
-            <div class="title">
-                <p>{{ $media->title }}</p>
-            </div>
-        </div>
-        @endif
-    @endforeach
-
-    </div>
-
-    <div class="border"></div>
-
-    <h3 class="TopTitle" >Anngap Saja Action Drama</h3>
-    <div class="hero-section">
-    @foreach ($medias as $media)
-        @if($media->genre->contains('genre_type', 'action'))
-        <div id= "card">
-            <div class="photo">
-                    <img src="{{ asset($media->poster) }}" alt="aos">
-            </div>
-            <div class="title">
-                <p>{{ $media->title }}</p>
-            </div>
-        </div>
-        @endif
-    @endforeach
-    </div>
-
-    <div class="border"></div>
-
-    // javascript for carousel
 
     <script>
     let items = document.querySelectorAll(".slider .item");
