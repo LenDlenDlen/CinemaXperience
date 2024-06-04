@@ -9,9 +9,6 @@
 
 @section('content')
 
-<div class="carousel">
-    <h1 class="text-white">INI BUAT TOP 10 TODAY -> CAROUSEL</h1>
-</div>
 <h3 class="TopTitle" >Trending Watches</h3>
     <div id="carousel">
         <div class="slider">
@@ -38,10 +35,10 @@
           <button id="next">></button>
           <button id="prev"><</button>
         </div>
-        
+
     </div>
-   
-   
+
+
 
 <div class="border my-4"></div>
 
