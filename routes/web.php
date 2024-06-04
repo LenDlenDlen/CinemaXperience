@@ -38,8 +38,11 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/dashboard', [DashboardController::class, 'showProfileDashboard'])->name('user.dashboard');
     Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
     Route::get('/user/watch/{id}', [WatchMovieController::class, 'watch'])->name('watch');
-    Route::get('/user/friendlist', [FriendController::class, 'showFriends'])->name('friendlist');
-
+    Route::get('/user/friendlist', [FriendController::class, 'ShowFriendList'])->name('friendlist');
+    Route::get('/user/friendrequests', [FriendController::class, 'showFriendRequests'])->name('friendrequests');
+    Route::post('/user/friendrequests/accept/{friendId}', [FriendController::class, 'acceptFriend'])->name('friendrequests.accept');
+    Route::post('/user/friendrequests/reject/{friendId}', [FriendController::class, 'rejectFriend'])->name('friendrequests.reject');
+    Route::post('/user/friendrequests/cancel/{friendId}', [FriendController::class, 'cancelRequest'])->name('friendrequests.cancel');
 });
 
 Route::middleware(['auth', 'role:non-member'])->group(function(){

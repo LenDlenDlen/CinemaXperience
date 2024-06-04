@@ -16,7 +16,7 @@
                 <ul>
                     <li class="my-2"><a href="#">Your Friends</a></li>
                     <li class="my-2"><a href="#">Add Friends</a></li>
-                    <li class="my-2"><a href="{{route('friendrequests')}}">Pending Requests</a></li>
+                    <li class="my-2"><a href="#">Pending Requests</a></li>
                 </ul>
             </div>
             <div>
@@ -31,28 +31,41 @@
         <div class="garis bg-stone-800 w-2 h- m-12"></div>
         <!-- Main Content -->
         <div class="w-3/4 p-5">
-            
+
             <div class="mb-10">
                 {{-- <h2 class="text-2xl font-semibold mb-3">Recently Contacted</h2> --}}
-                <h1 class="TopTitle">Your Friends</h1>
-
-                @if ($AllFriends->isEmpty())
-                <p class = "font-bold text-xl">No Friends Available</p>
+                <h1 class="TopTitle">Pending Request</h1>
+                {{-- harusnya ini didalem page friend request --}}
+                @if ($PendingRequests->isEmpty())
+                <p class = "font-bold text-xl">No Pending Request Available</p>
                 @else
-                @foreach ($AllFriends as $friend)
-                <div class="inline-block h-14">
+                @foreach($PendingRequests as $request)
+                <div class="inline-block  h-14">
                     <div class="flex space-x-4">
                         <div class="friend-item" >
                             <div class="friendcontainer items-center flex gap-3 w-full">
                                 <div class="pic-container bg-black rounded-full w-1/24">
-                                    <img src="{{$friend->profile_picture}}" class="friend-img" alt="Pic">
+                                    <img src="{{$request->profile_picture}}" class="friend-img" alt="Pic">
                                 </div>
                                 <div class="nama text-black font-bold text-base flex text-center items-center w-9/12">
-                                    {{$friend->name}}
+                                    {{$request->name}}
                                 </div>
-                                
-                                <div class="button  ">
-                                    <button class="friend-btn">+</button>
+                                <div class="button flex gap-3">
+                                    @if ($request->pivot->user_id == auth()->id())
+                                    <form action="{{ route('friendrequests.cancel', $request->pivot->friend_id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="friend-btn">Cancel</button>
+                                    </form>
+                                    @else
+                                    <form action="{{ route('friendrequests.accept', $request->pivot->user_id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="friend-btn">Accept</button>
+                                    </form>
+                                    <form action="{{ route('friendrequests.reject', $request->pivot->user_id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="friend-btn">Decline</button>
+                                    </form>
+                                   @endif
                                 </div>
                             </div>
                         </div>

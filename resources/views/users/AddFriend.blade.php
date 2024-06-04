@@ -34,31 +34,9 @@
             
             <div class="mb-10">
                 {{-- <h2 class="text-2xl font-semibold mb-3">Recently Contacted</h2> --}}
-                <h1 class="TopTitle">Your Friends</h1>
-
-                @if ($AllFriends->isEmpty())
-                <p class = "font-bold text-xl">No Friends Available</p>
-                @else
-                @foreach ($AllFriends as $friend)
-                <div class="inline-block h-14">
-                    <div class="flex space-x-4">
-                        <div class="friend-item" >
-                            <div class="friendcontainer items-center flex gap-3 w-full">
-                                <div class="pic-container bg-black rounded-full w-1/24">
-                                    <img src="{{$friend->profile_picture}}" class="friend-img" alt="Pic">
-                                </div>
-                                <div class="nama text-black font-bold text-base flex text-center items-center w-9/12">
-                                    {{$friend->name}}
-                                </div>
-                                
-                                <div class="button  ">
-                                    <button class="friend-btn">+</button>
-                                </div>
-                            </div>
-                        </div>
-                </div></div>
-                @endforeach
-                @endif
+                <h1 class="TopTitle">Add Friend</h1>
+                <input type="text" placeholder="Input Friend">
+                
                 </div>
             </div>
         </div>
