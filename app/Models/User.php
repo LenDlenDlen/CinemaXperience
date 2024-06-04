@@ -44,4 +44,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function UserColumn()
+    {
+        return $this->belongsToMany(User::class, 'user_friend_lists', 'user_id','friend_id')
+                    ->withPivot('id','status')
+                    ->withTimestamps();
+    }
+
+    public function FriendColumn()
+    {
+        return $this->belongsToMany(User::class, 'user_friend_lists', 'friend_id','user_id')
+                    ->withPivot('id','status')
+                    ->withTimestamps();
+
+    }
 }

@@ -19,8 +19,8 @@
 }
 
 .friend-btn {
-    background-color: #b8860b;
-    color: white;
+    background-color:  #ffd700;
+    color: rgb(0, 0, 0);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
 }

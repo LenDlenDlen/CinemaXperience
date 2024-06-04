@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_friend_lists', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('friend_id');
-            $table->primary(['user_id', 'friend_id']);
+            $table->string('status');
+            // $table->primary(['user_id', 'friend_id', 'id']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('friend_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

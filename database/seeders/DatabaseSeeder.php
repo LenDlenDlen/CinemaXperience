@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             UserSeeder::class,
             MediaSeeder::class,
+            FriendSeeder::class,
         ]);
     }
 }
