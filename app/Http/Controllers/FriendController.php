@@ -78,7 +78,7 @@ class FriendController extends Controller
         $searchResult = User::find($searchId);
 
         if (!$searchResult) {
-            $searchResult = null;
+            return redirect()->route('addfriend')->with('error', 'No user found with that ID.');
         }
 
         return view('users.addFriend', compact('searchResult'));
@@ -88,6 +88,10 @@ class FriendController extends Controller
     {
         $user = auth()->user();
         $friendId = $request->input('friend_id');
+        $targetUser = User::find($friendId);
+        if ($targetUser && $targetUser->role == 'admin') {
+        return redirect()->back()->with('error', 'You cannot add an admin as a friend.');
+        }
 
         // Check if the user is already friends with the provided ID
         $existingFriendship = DB::table('user_friend_lists')

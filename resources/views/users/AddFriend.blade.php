@@ -33,11 +33,16 @@
         <div class="w-3/4 p-5">
             <div class="mb-10">
                 <h1 class="TopTitle">Add Friend</h1>
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+                @endif
                 <form action="{{ route('friendsearch') }}" method="GET">
                     <input type="text" name="search_id" placeholder="Input Friend's ID" required>
                     <button type="submit" class="friend-btn bg-yellow">Search</button>
                 </form>
-                @if(isset($searchResult))  <!-- ini klo ketemu masuk, tapi klo gaketemu <p> di else ga masuk -->
+                @if(isset($searchResult))
                 <div class="mt-5">
                     @if($searchResult)
                     <p>Found user: {{ $searchResult->name }}</p>
@@ -47,7 +52,6 @@
                         <button type="submit" class="friend-btn">Add Friend</button>
                     </form>
                     @else
-                    <p class="text-white">No user found with that ID.</p>
                     @endif
                 </div>
                 @endif
