@@ -39,6 +39,14 @@
             @endif
         @endauth
     </div>
+    <div class="friendnav">
+        @auth
+        @if(auth()->user()->role === 'admin')
+        @else
+            <div class="friend text-white"><a href="{{ route('friendlist') }}">Friends</a></div>
+        @endif
+        @endauth
+    </div>
 
     <div class="ddl">
         @auth

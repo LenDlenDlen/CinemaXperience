@@ -12,6 +12,7 @@ use App\Http\Controllers\PaymentController;
 
 
 
+
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [LoginController::class, 'handle']);
@@ -37,7 +38,7 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/dashboard', [DashboardController::class, 'showProfileDashboard'])->name('user.dashboard');
     Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
     Route::get('/user/watch/{id}', [WatchMovieController::class, 'watch'])->name('watch');
-    Route::get('/user/friendlist', [FriendController::class, 'showFriends'])->name('user.friendlist');
+    Route::get('/user/friendlist', [FriendController::class, 'showFriends'])->name('friendlist');
 
 });
 
