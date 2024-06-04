@@ -19,7 +19,8 @@
             <p class="text-white mb-2">{{ $movie->description }}</p>
             <p class="text-white mb-2">Rating: {{ $movie->rating }}/10</p>
             <p class="text-white mb-4">Release Date: {{ $movie->released_date }}</p>
-            <img src="{{ asset($movie->poster) }}" alt="{{ $movie->title }}" class="object-cover w-full h-64 rounded-md mb-4">
+            <p class="text-white mb-2">Genres: {{ $movie->genre->implode('genre_type', ', ') }}</p>
+            <img src="{{ asset('storage/' . $movie->poster) }}" alt="{{ $movie->title }}" class="object-cover w-full h-64 rounded-md mb-4">
         </div>
     </div>
 

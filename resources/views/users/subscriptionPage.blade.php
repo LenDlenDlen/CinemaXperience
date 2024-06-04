@@ -6,10 +6,6 @@
 <link rel="stylesheet" href="{{ asset('css/subscriptionPage.css') }}">
 @endsection
 
-</body>
-
-</html>
-
 @section('content')
 <!-- Isi semua di sini -->
 <div class="title-container">
@@ -67,6 +63,7 @@
             <li>Streaming dalam resolusi Ultra HD (4K)</li>
         </ul>
     </div>
+
 </div>
 
 @endsection
