@@ -6,10 +6,6 @@
 <link rel="stylesheet" href="{{ asset('css/subscriptionPage.css') }}">
 @endsection
 
-</body>
-
-</html>
-
 @section('content')
 <!-- Isi semua di sini -->
 <div class="title-container">

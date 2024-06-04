@@ -2,12 +2,14 @@
     padding-top: 50px;
     text-align: center;
     color: #ffffff;
+    font-size: 34px;
 }
 
 .sub-title {
     padding-top: 5px;
     text-align: center;
     color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
 }
 
 .title-container {
@@ -79,7 +81,7 @@
 .choose-plan-button {
     background-color: #ffd700;
     color: #000000;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     padding: 10px 50px;
     border: none;

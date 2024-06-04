@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}">
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-
+    <!-- Font inter dr google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/partials/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/partials/footer.css') }}">
@@ -26,8 +29,8 @@
 
         body {
             background-color: #262422;
-            /* font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; */
             font-family: 'Inter', sans-serif;
+            font-weight: 700px;
         }
     </style>
 
