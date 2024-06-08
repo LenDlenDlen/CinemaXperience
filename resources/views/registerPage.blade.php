@@ -60,7 +60,7 @@
                @endforeach
            @endif
 
-           <form method="POST" action="{{ route('register') }}">
+           <form class="register-form" method="POST" action="{{ route('register') }}">
             @csrf
                <div class="name mb-3">
                    <input type="text" name="first_name" placeholder="First Name" class="first" value="{{ old('first_name') }}">
