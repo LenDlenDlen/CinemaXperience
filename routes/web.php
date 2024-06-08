@@ -19,6 +19,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [LoginController::class, 'handle']);
 
+Route::put('user/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::middleware('guest')->group(function(){
     Route::get('/login', [LoginController::class, 'showLandingPage'])->name('login');
@@ -36,7 +37,6 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::resource('/admin/medias', MediaController::class);
     Route::get('/admin/users/view', [MediaController::class, 'view'])->name('medias.view');
     Route::resource('/admin/users', UserController::class);
-    Route::put('user/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 });
 
@@ -53,7 +53,6 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/addfriend', [FriendController::class, 'showAddFriendForm'])->name('addfriend');
     Route::get('/user/friendsearch', [FriendController::class, 'searchFriend'])->name('friendsearch');
     Route::post('/user/addfriend', [FriendController::class, 'addFriend'])->name('friendrequests.add');
-    Route::put('user/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 });
 
@@ -61,6 +60,5 @@ Route::middleware(['auth', 'role:non-member'])->group(function(){
     Route::get('user/paymentCard', [PaymentController::class, 'card'])->name('card');
     Route::get('user/paymentQris', [PaymentController::class, 'qris'])->name('qris');
     Route::post('user/payment', [UserController::class, 'userPayment'])->name('payment');
-    Route::put('user/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 });

@@ -14,24 +14,23 @@ class ProfileController extends Controller
         return view('users.profileDashboard', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request )
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
-            'date_of_birth' => 'nullable|date',
+            'dob' => 'nullable|date',
             'password' => 'nullable|string|min:8',
         ]);
 
         $user = Auth::user();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->date_of_birth = $request->date_of_birth;
-        if ($request->password) {
+        $user->dob = $request->dob;
+        if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
         }
         $user->save();
-
-        return redirect()->route('users.profileDashboard')->with('success', 'Profile updated successfully.');
+        return redirect('home')->with('success', 'Profile updated successfully.');
     }
 }

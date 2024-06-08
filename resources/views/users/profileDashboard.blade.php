@@ -28,11 +28,11 @@
                 <label for="email">Email address</label>
                 <input type="email" id="email" name="email" value="{{ Auth::user()->email }}">
 
-                <label for="date_of_birth">Date of Birth</label>
-                <input type="date" id="date_of_birth" name="date_of_birth" value="{{ Auth::user()->dob }}">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" value="{{ Auth::user()->dob }}">
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" value="{{ Auth::user()->password }}">
+                <input type="password" id="password" name="password" placeholder="Leave blank to keep current password">
 
                 <button type="submit" class="save-changes-button">Save Changes</button>
             </form>
