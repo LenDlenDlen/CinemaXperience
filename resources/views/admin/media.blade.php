@@ -18,11 +18,17 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         border-color: black;
     }
+
+    .TopTitle {
+    border-left: 0.5rem solid red;
+    color: white;
+    padding-left: 0.5rem;
+    }
 </style>
 @endsection
 
 @section('content')
-<div class="mt-12 ml-8 text-4xl md:text-6xl font-bold typing-effect w-fit text-yellow-300">MEDIA CRUD</div>
+<div class="TopTitle mt-12 ml-8 text-4xl md:text-6xl font-bold typing-effect w-fit text-yellow-300">MEDIA CRUD</div>
 
 @if(session()->has('success'))
 <div style="display: flex; justify-content: center; align-items :center">

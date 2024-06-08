@@ -12,6 +12,45 @@
 
     <div class="main-content">
 
+        <div class="hero-section-1">
+            <div class="Scrolling_Background">
+                <div class="photo photo-1"></div>
+                <div class="photo photo-2"></div>
+                <div class="photo photo-3"></div>
+                <div class="photo photo-4"></div>
+                <div class="photo photo-5"></div>
+                <div class="photo photo-6"></div>
+                <div class="photo photo-7"></div>
+                <div class="photo photo-1"></div>
+                <div class="photo photo-2"></div>
+                <div class="photo photo-3"></div>
+                <div class="photo photo-4"></div>
+                <div class="photo photo-5"></div>
+                <div class="photo photo-6"></div>
+                <div class="photo photo-7"></div>
+            </div>
+        </div>
+
+        <div class="hero-section-2">
+            <div class="Scrolling_Background_2">
+                <div class="photo photo-1"></div>
+                <div class="photo photo-2"></div>
+                <div class="photo photo-3"></div>
+                <div class="photo photo-4"></div>
+                <div class="photo photo-5"></div>
+                <div class="photo photo-6"></div>
+                <div class="photo photo-7"></div>
+                <div class="photo photo-1"></div>
+                <div class="photo photo-2"></div>
+                <div class="photo photo-3"></div>
+                <div class="photo photo-4"></div>
+                <div class="photo photo-5"></div>
+                <div class="photo photo-6"></div>
+                <div class="photo photo-7"></div>
+            </div>
+        </div>
+
+
         <div class="register-container">
            <h2 class="mt-3">Register Your Account</h2>
 
@@ -41,18 +80,6 @@
            </form>
 
            <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
-       </div>
-
-       <div class="hero-section-1">
-           <div class="photo photo-1"></div>
-           <div class="photo photo-2"></div>
-           <div class="photo photo-3"></div>
-       </div>
-
-       <div class="hero-section-2">
-           <div class="photo photo-3"></div>
-           <div class="photo photo-2"></div>
-           <div class="photo photo-1"></div>
        </div>
    </div>
 </div>

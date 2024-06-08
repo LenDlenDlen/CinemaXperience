@@ -39,7 +39,7 @@
                 </div>
                 @endif
                 <form action="{{ route('friendsearch') }}" method="GET">
-                    <input type="text" name="search_id" placeholder="Input Friend's ID" required>
+                    <input class="text-black"type="text" name="search_id" placeholder="Input Friend's ID" required>
                     <button type="submit" class="friend-btn bg-yellow">Search</button>
                 </form>
                 @if(isset($searchResult))
