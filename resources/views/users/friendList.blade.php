@@ -51,7 +51,7 @@
                                     {{$friend->name}}
                                 </div>
 
-                                <div class="button  ">
+                                <div class="button">
                                     <button class="friend-btn">+</button>
                                 </div>
                             </div>

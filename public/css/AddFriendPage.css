@@ -4,6 +4,7 @@
 /* Custom styles */
 .friend-item {
     display: flex;
+    /* position: absolute; */
     align-items: center;
     background-color: #ffd700;
     padding: 0.5rem;
@@ -20,6 +21,7 @@
 
 .friend-btn {
     background-color:  #ffd700;
+    border-color: black;
     color: rgb(0, 0, 0);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
@@ -32,4 +34,18 @@
     margin-bottom: 1rem;
     font-size: xx-large;
     font-weight: bold;
+}
+
+.SideTitle {
+    border-left: 0.3rem solid #ffd717;
+    color: white;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: large;
+    font-weight: bold;
+}
+
+input[type="text"]{
+    height: 2rem;
+    border-radius: 0.2rem;
 }
