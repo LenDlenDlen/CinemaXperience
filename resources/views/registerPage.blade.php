@@ -54,11 +54,16 @@
         <div class="register-container">
            <h2 class="mt-3">Register Your Account</h2>
 
-           @if ($errors->any())
-               @foreach ($errors->all() as $error)
-                   <div class="alert alert-danger">{{ $error }}</div>
-               @endforeach
-           @endif
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ $error }}
+                        <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endforeach
+            @endif
 
            <form class="register-form" method="POST" action="{{ route('register') }}">
             @csrf
@@ -79,11 +84,10 @@
                <button type="submit" class="register-btn">Register</button>
            </form>
 
-           <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
+           <span>Already have an account? <a href="{{ route('login') }}" class="login">Login</a></span>
        </div>
    </div>
 </div>
-
 
 
 @endsection

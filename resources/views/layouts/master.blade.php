@@ -41,6 +41,21 @@
         .flex-row-admin {
             flex-direction: row;
         }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #ffd717;
+            border-radius: 6px;
+            border: 3px solid #2c2f33;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #333;
+            border-radius: 6px;
+        }
     </style>
 
     @vite('resources/css/app.css')
