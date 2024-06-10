@@ -18,12 +18,18 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         border-color: black;
     }
+
+    .TopTitle {
+    border-left: 0.5rem solid red;
+    color: white;
+    padding-left: 0.5rem;
+    }
 </style>
 
 @endsection
 
 @section('content')
-<div class="mt-12 ml-8 text-4xl md:text-6xl font-bold typing-effect w-fit text-yellow-300">USER CRUD</div>
+<div class="TopTitle mt-12 ml-8 text-4xl md:text-6xl font-bold typing-effect w-fit text-yellow-300">USER CRUD</div>
 
 <div class="flex flex-wrap justify-around gap-4 mt-12 mx-8">
     <div class="container flex-initial border rounded-lg shadow-md p-8 m-4 cursor-pointer w-full md:w-5/12 lg:w-1/3">

@@ -93,7 +93,7 @@ class MediaSeeder extends Seeder
             'description' => 'A nephew who lost his parents and grew up in the hands of an uncle who runs a shopping mall faces a new truth after his uncle\'s sudden death.',
             'rating' => 8.1,
             'poster' => 'posts_images/shopforkiller.jpg',
-            'isPremium' => false,
+            'isPremium' => true,
             'released_date' => Carbon::parse('2024-01-17')->toDateString(),
             'genres' => ['thriller', 'action'],
             'source' => '69nzLpyMSHw',
