@@ -55,6 +55,15 @@ class FriendController extends Controller
         return redirect()->route('friendrequests');
     }
 
+    public function removeFriend($FriendId)
+    {
+        \Log::info("Attempting to remove friend with ID: $FriendId");
+        $user = auth()->user();
+        $user->FriendColumn()->detach($FriendId);
+        $user->UserColumn()->detach($FriendId);
+        return redirect()->route('friendlist');
+    }
+
     public function cancelRequest($friendId)
     {
         $user = auth()->user();
@@ -77,8 +86,23 @@ class FriendController extends Controller
         $searchId = $request->input('search_id');
         $searchResult = User::find($searchId);
 
-        if (!$searchResult) {
+        if (!$searchResult || $searchResult->role == 'admin') {
             return redirect()->route('addfriend')->with('error', 'No user found with that ID.');
+        }
+        else if($searchId == auth()->user()->id){
+            return redirect()->route('addfriend')->with('error', 'You cannot add your own ID.');
+        }
+
+        return view('users.addFriend', compact('searchResult'));
+    }
+
+    public function searchFriendByName(Request $request)
+    {
+        $searchId = $request->input('name');
+        $searchResult = User::find($searchId);
+
+        if (!$searchResult) {
+            return redirect()->route('addfriend')->with('error', 'No user found.');
         }
 
         return view('users.addFriend', compact('searchResult'));

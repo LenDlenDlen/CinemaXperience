@@ -46,6 +46,8 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
     Route::get('/user/watch/{id}', [WatchMovieController::class, 'watch'])->name('watch');
     Route::get('/user/friendlist', [FriendController::class, 'ShowFriendList'])->name('friendlist');
+
+    Route::post('/user/friendlist/{friendId}', [FriendController::class, 'removeFriend'])->name('removefriend');
     Route::get('/user/friendrequests', [FriendController::class, 'showFriendRequests'])->name('friendrequests');
     Route::post('/user/friendrequests/accept/{friendId}', [FriendController::class, 'acceptFriend'])->name('friendrequests.accept');
     Route::post('/user/friendrequests/reject/{friendId}', [FriendController::class, 'rejectFriend'])->name('friendrequests.reject');
