@@ -77,6 +77,7 @@
 
     </div>
 </div>
+
 <script>
     function openModal() {
         document.getElementById('loginModal').style.display = 'flex';
