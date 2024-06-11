@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('watch_parties', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->unsignedBigInteger('media_id');
             $table->foreign('media_id')->references('id')->on('medias')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('status', 50);
+            $table->string('status', 50)->nullable();
             $table->timestamps();
         });
     }

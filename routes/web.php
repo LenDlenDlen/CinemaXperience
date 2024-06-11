@@ -56,11 +56,20 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/friendsearch', [FriendController::class, 'searchFriend'])->name('friendsearch');
     Route::post('/user/addfriend', [FriendController::class, 'addFriend'])->name('friendrequests.add');
 
+
+    Route::get('/user/createParty', [WatchMovieController::class, 'showCreateParty'])->name('wp.create');
+    Route::post('/user/createParty', [WatchMovieController::class, 'createParty'])->name('wp.store');
+    Route::get('/user/watchPartyList', [WatchMovieController::class, 'showParty'])->name('wp.show');
+    Route::get('/user/watchParty/{id}', [WatchMovieController::class, 'watchParty'])->name('wp.watch');
+    Route::get('/user/findParty', [WatchMovieController::class, 'findParty'])->name('wp.find');
+    Route::post('/user/join/{id}', [WatchMovieController::class, 'joinParty'])->name('wp.join');
+    Route::post('/user/leave/{id}', [WatchMovieController::class, 'leaveParty'])->name('wp.leave');
+    Route::post('/user/watchParty/{id}/sendMessage', [WatchMovieController::class, 'sendMessage'])->name('wp.sendMessage');
+
 });
 
 Route::middleware(['auth', 'role:non-member'])->group(function(){
     Route::get('user/paymentCard', [PaymentController::class, 'card'])->name('card');
     Route::get('user/paymentQris', [PaymentController::class, 'qris'])->name('qris');
     Route::post('user/payment', [UserController::class, 'userPayment'])->name('payment');
-
 });

@@ -60,4 +60,8 @@ class User extends Authenticatable
                     ->withTimestamps();
 
     }
+
+    public function watchParties(){
+        return $this->belongsToMany(WatchParty::class, 'watch_parties_participants', 'user_id', 'watch_parties_id');
+    }
 }
