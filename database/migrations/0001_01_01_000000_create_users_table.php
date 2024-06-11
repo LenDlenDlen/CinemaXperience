@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email', 50)->unique();
             $table->string('password');
             $table->date('dob');
-            $table->binary('profile_picture')->nullable();
+            $table->text('profile_picture')->nullable();
             $table->enum('role', ['admin', 'member', 'non-member'])->default('non-member');
             $table->rememberToken();
             $table->timestamps();

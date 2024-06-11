@@ -20,9 +20,9 @@
     }
 
     .TopTitle {
-    border-left: 0.5rem solid red;
-    color: white;
-    padding-left: 0.5rem;
+        border-left: 0.5rem solid red;
+        color: white;
+        padding-left: 0.5rem;
     }
 </style>
 @endsection
