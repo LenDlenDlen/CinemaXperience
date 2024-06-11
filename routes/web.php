@@ -13,6 +13,7 @@ use App\Http\Controllers\WatchMovieController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MessageController;
 use App\Http\Middleware\VerifyCsrfToken;
 
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -46,6 +47,10 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::get('/user/subscription', [SubscribeController::class, 'show'])->name('subscription');
     Route::get('/user/watch/{id}', [WatchMovieController::class, 'watch'])->name('watch');
     Route::get('/user/friendlist', [FriendController::class, 'ShowFriendList'])->name('friendlist');
+
+    // for chatting
+    Route::post('/user/friendlist/message/{friendId}', [MessageController::class, 'storeMessage'])->name('chat.store');
+    Route::get('/user/friendlist/message/{id}', [MessageController::class, 'showMessage'])->name('chat.show');
 
     Route::post('/user/friendlist/{friendId}', [FriendController::class, 'removeFriend'])->name('removefriend');
     Route::get('/user/friendrequests', [FriendController::class, 'showFriendRequests'])->name('friendrequests');

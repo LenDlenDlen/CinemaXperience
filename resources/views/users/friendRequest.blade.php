@@ -12,7 +12,7 @@
         <!-- Sidebar -->
         <div class="w-1/4 h-screen p-5 ">
             <div class="mb-5">
-                <h2 class="text-lg font-semibold">Friends</h2>
+                <h2 class="SideTitle">Friends</h2>
                 <ul>
                     <li class="my-2"><a href="{{route('friendlist')}}">Your Friends</a></li>
                     <li class="my-2"><a href="{{route('addfriend')}}">Add Friends</a></li>
@@ -20,7 +20,7 @@
                 </ul>
             </div>
             <div>
-                <h2 class="text-lg font-semibold">Groups</h2>
+                <h2 class="SideTitle">Watch Party</h2>
                 <ul>
                     <li class="my-2"><a href="#">Your Groups</a></li>
                     <li class="my-2"><a href="#">Create Group</a></li>

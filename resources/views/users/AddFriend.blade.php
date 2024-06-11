@@ -15,13 +15,13 @@
             <div class="mb-5">
                 <h2 class="SideTitle">Friends</h2>
                 <ul>
-                    <li class="my-2"><a href="{{ route('friendlist') }}">Your Friends</a></li>
-                    <li class="my-2"><a href="{{ route('addfriend') }}">Add Friends</a></li>
-                    <li class="my-2"><a href="{{ route('friendrequests') }}">Pending Requests</a></li>
+                    <li class="my-2"><a href="{{route('friendlist')}}">Your Friends</a></li>
+                    <li class="my-2"><a href="{{route('addfriend')}}">Add Friends</a></li>
+                    <li class="my-2"><a href="{{route('friendrequests')}}">Pending Requests</a></li>
                 </ul>
             </div>
             <div>
-                <h2 class="SideTitle">Groups</h2>
+                <h2 class="SideTitle">Watch Party</h2>
                 <ul>
                     <li class="my-2"><a href="#">Your Groups</a></li>
                     <li class="my-2"><a href="#">Create Group</a></li>
@@ -62,7 +62,7 @@
                                         {{$searchResult->name}}
                                     </div>
                                     <input type="hidden" name="friend_id" value="{{ $searchResult->id }}">
-                                    <button type="submit" class="friend-btn text-2xl">+</button>
+                                    <button type="submit" class="friend-btn text-2xl ">+</button>
                                 </div>
                             </div>
                         </div>

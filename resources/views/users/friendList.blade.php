@@ -52,16 +52,21 @@
                                 <div class="nama text-black font-bold text-base flex text-center items-center w-9/12">
                                     {{$friend->name}}
                                 </div>
+
                                 <form action="{{route('removefriend', $friend->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="friend-btn remove-btn text-xl" style="display: none;"><i class="fa fa-trash-o"></i></button>
                                 </form>
+
                                 <div class="button">
                                     <button class="friend-btn text-xl">+</button>
                                 </div>
 
                                 <div class="button">
-                                    <button type="submit" class="friend-btn text-xl" ><i class="fas fa-comment-alt" style="font-size:1rem"></i></button>
+                                    <a href="{{ route('chat.show', ['id' => $friend->id]) }}">
+                                        <button class="friend-btn text-xl"><i class="fas fa-comment-alt" style="font-size:1rem"></i></button>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -86,7 +91,6 @@
         buttons.forEach(button => {
             button.style.display = button.style.display === 'none' ? 'block' : 'none';
         });
-        // Toggle the text of the rmv-btn
         if (toggleButton.innerHTML.trim() === 'Remove Friend') {
             toggleButton.innerHTML = 'Cancel';
         } else {

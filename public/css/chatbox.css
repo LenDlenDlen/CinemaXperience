@@ -14,9 +14,12 @@
 }
 
 .friend-img {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 9999px;
+    border-color: #ffd700;
+    align-content: center;
+    align-items: center;
 }
 
 .friend-btn {
@@ -46,12 +49,36 @@
     font-weight: bold;
 }
 
+.input_box{
+    height: 2.5rem;
+    background-color:#302e2c;
+    /* border-color:white;
+    border-width: 0.3px; */
+
+}
+
 input[type="text"]{
-    height: 2rem;
-    min-width: 14rem;
+
+    min-width: 100%;
     border-radius: 0.2rem;
+    color: black;
 }
 
 input[placeholder]{
     font-size:1rem;
 }
+
+.input:focus {
+    background-color: transparent;
+    color: white;
+    border: 1px solid yellow;
+    outline: none;
+}
+
+.timeline{
+    display: block;
+    margin-top: 4px;
+    text-align: right;
+}
+
+

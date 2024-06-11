@@ -57,7 +57,7 @@ class FriendController extends Controller
 
     public function removeFriend($FriendId)
     {
-        \Log::info("Attempting to remove friend with ID: $FriendId");
+        // \Log::info("Attempting to remove friend with ID: $FriendId");
         $user = auth()->user();
         $user->FriendColumn()->detach($FriendId);
         $user->UserColumn()->detach($FriendId);
