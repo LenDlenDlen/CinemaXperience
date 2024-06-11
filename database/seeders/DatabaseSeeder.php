@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MediaSeeder::class,
             FriendSeeder::class,
+            WatchPartySeeder::class,
+            WatchPartyParticipantsSeeder::class
         ]);
     }
 }

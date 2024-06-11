@@ -31,6 +31,7 @@
         </div>
 
         <div class="garis bg-stone-800 w-2 h- m-8"></div>
+        @include('partials.sidebar-friend')
 
         <!-- Main Content -->
         <div class="w-3/4 p-5">
@@ -51,7 +52,6 @@
                     <p>Found user:</p>
                     <form action="{{ route('friendrequests.add') }}" method="POST">
                         @csrf
-                        {{-- Showing the user card --}}
                         <div class="inline-block h-14">
                             <div class="friend-item" >
                                 <div class="friendcontainer items-center flex gap-3 w-full">

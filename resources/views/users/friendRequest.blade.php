@@ -29,6 +29,7 @@
             </div>
         </div>
         <div class="garis bg-stone-800 w-2 h- m-12"></div>
+        @include('partials.sidebar-friend')
         <!-- Main Content -->
         <div class="w-3/4 p-5">
 

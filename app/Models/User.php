@@ -61,4 +61,7 @@ class User extends Authenticatable
 
     }
 
+    public function watchParties(){
+        return $this->belongsToMany(WatchParty::class, 'watch_parties_participants', 'user_id', 'watch_parties_id');
+    }
 }
