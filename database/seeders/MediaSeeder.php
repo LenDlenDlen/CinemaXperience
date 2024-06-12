@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Genre;
 use App\Models\Media;
+use App\Models\Reply;
+use App\Models\Review;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -142,6 +144,14 @@ class MediaSeeder extends Seeder
 
             $genres = Genre::whereIn('genre_type', $media['genres'])->get();
             $mediaData->genre()->attach($genres);
+        }
+
+        foreach (Media::all() as $media) {
+            Review::factory()->count(3)->create(['media_id' => $media->id]);
+        }
+
+        foreach (Review::all() as $review) {
+            Reply::factory()->count(2)->create(['review_id' => $review->id]);
         }
     }
 }

@@ -32,6 +32,13 @@ Class FriendSeeder extends Seeder
             'status' => 'pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
+        ],
+        [
+            'user_id' => '4',
+            'friend_id' => '3',
+            'status' => 'pending',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]
         ]);
     }

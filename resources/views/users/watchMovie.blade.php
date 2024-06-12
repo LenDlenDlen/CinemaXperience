@@ -15,7 +15,9 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
-            <h1 class="text-white text-3xl font-bold mb-2">{{ $movie->title }}</h1>
+            <a href="{{ route('detail.show', $movie->id) }}">
+                <h1 class="text-white text-3xl font-bold mb-2 hover:underline">{{ $movie->title }}</h1>
+            </a>
             <p class="text-white mb-2">{{ $movie->description }}</p>
             <p class="text-white mb-2">Rating: {{ $movie->rating }}/10</p>
             <p class="text-white mb-4">Release Date: {{ $movie->released_date }}</p>
@@ -23,7 +25,6 @@
             <img src="{{ asset('storage/' . $movie->poster) }}" alt="{{ $movie->title }}" class="object-cover w-full h-64 rounded-md mb-4">
         </div>
     </div>
-
 </div>
 
 <script>

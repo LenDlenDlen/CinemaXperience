@@ -38,7 +38,6 @@ class WatchMovieController extends Controller
         $user = Auth::user();
         $movies = Media::all();
 
-
         $friendsFromUserId = $user->UserColumn()->wherePivot('status', 'accepted')->get();
         $friendsFromFriendId = $user->FriendColumn()->wherePivot('status', 'accepted')->get();
         $friends = $friendsFromUserId->merge($friendsFromFriendId);

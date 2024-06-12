@@ -15,13 +15,15 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\VerifyCsrfToken;
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [LoginController::class, 'handle']);
 
-Route::put('user/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::put('user/profile', [ProfileController::class, 'update'])->middleware('auth')->name('profile.update');
 
 Route::middleware('guest')->group(function(){
     Route::get('/login', [LoginController::class, 'showLandingPage'])->name('login');
@@ -32,7 +34,7 @@ Route::middleware('guest')->group(function(){
 
     Route::post('/register', [RegisterController::class, 'regist'])->name('register');
 
-});
+    });
 
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'showAdminDashboard'])->name('admin.dashboard');
@@ -73,6 +75,9 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::post('/user/watchParty/{id}/sendMessage', [WatchMovieController::class, 'sendMessage'])->name('wp.sendMessage');
 
     Route::get('/user/mediaDetails/{id}', [MediaDetailsController::class, 'showDetails'])->name('detail.show');
+
+    Route::resource('reviews', ReviewController::class);
+    Route::resource('replies', ReplyController::class);
 
 });
 
