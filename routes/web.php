@@ -8,6 +8,7 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\MediaDetailsController;
 use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\WatchMovieController;
 use App\Http\Controllers\PaymentController;
@@ -70,6 +71,8 @@ Route::middleware(['auth', 'role:member,non-member'])->group(function(){
     Route::post('/user/join/{id}', [WatchMovieController::class, 'joinParty'])->name('wp.join');
     Route::post('/user/leave/{id}', [WatchMovieController::class, 'leaveParty'])->name('wp.leave');
     Route::post('/user/watchParty/{id}/sendMessage', [WatchMovieController::class, 'sendMessage'])->name('wp.sendMessage');
+
+    Route::get('/user/mediaDetails/{id}', [MediaDetailsController::class, 'showDetails'])->name('detail.show');
 
 });
 

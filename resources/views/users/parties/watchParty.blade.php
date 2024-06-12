@@ -36,8 +36,8 @@
         </div>
     </div>
 
-    <div class="w-2/5 bg-zinc-800 p-6 rounded-md shadow-lg mx-4 flex flex-col">
-        <div class="flex items-center justify-between mb-4">
+    <div class="w-2/5 bg-zinc-800 p-6 rounded-md shadow-lg mx-4 flex flex-col h-screen">
+        <div class="flex items-center justify-between mb-4 border-b-2 border-yellow-400">
             <h2 class="text-white text-2xl font-bold">{{ $party->name }}</h2>
             <button @click="showMembersModal = true" class="text-white">
                 <i class="fa fa-users"></i>
@@ -59,23 +59,25 @@
             @endforeach
         </div>
 
-        <form action="{{ route('wp.sendMessage', $party->id) }}" method="POST" class="flex">
+        <form action="{{ route('wp.sendMessage', $party->id) }}" method="POST" class="mt-auto">
             @csrf
-            <input type="text" name="message" class="flex-1 p-2 rounded-l-lg" placeholder="Type a message...">
-            <button type="submit" class="bg-white text-black px-4 py-2 rounded-r-lg"><i class="mt-1 fa fa-paper-plane text-yellow-500 hover:text-yellow-600 text-2xl"></i></button>
+            <div class="flex">
+                <input type="text" name="message" class="flex-1 p-2 rounded-l-lg" placeholder="Type a message...">
+                <button type="submit" class="bg-white text-black px-4 py-2 rounded-r-lg"><i class="mt-1 fa fa-paper-plane text-yellow-500 hover:text-yellow-600 text-2xl"></i></button>
+            </div>
         </form>
     </div>
-</div>
 
-<div x-show="showMembersModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" style="display: none;">
-    <div class="bg-white p-4 rounded-lg w-1/3" @click.away="showMembersModal = false">
-        <h2 class="text-2xl font-bold mb-4">Party Members</h2>
-        <ul>
-            @foreach($party->participants as $participant)
-                <li class="mb-2">{{ $participant->name }}</li>
-            @endforeach
-        </ul>
-        <button @click="showMembersModal = false" class="mt-4 bg-gray-500 text-white px-4 py-2 rounded">Close</button>
+    <div x-show="showMembersModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50" style="display: none;">
+        <div class="bg-white p-4 rounded-lg w-1/3" @click.away="showMembersModal = false">
+            <h2 class="text-2xl font-bold mb-4">Party Members</h2>
+            <ul>
+                @foreach($party->participants as $participant)
+                    <li class="mb-2">{{ $participant->name }}</li>
+                @endforeach
+            </ul>
+            <button @click="showMembersModal = false" class="mt-4 bg-gray-500 text-white px-4 py-2 rounded">Close</button>
+        </div>
     </div>
 </div>
 
