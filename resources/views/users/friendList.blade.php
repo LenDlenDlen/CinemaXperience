@@ -40,19 +40,22 @@
 
                                 <form action="{{route('removefriend', $friend->id) }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="friend-btn remove-btn text-xl" style="display: none;"><i class="fa fa-trash-o"></i></button>
+                                    <button type="submit" class="friend-btn remove-btn text-xl hover:bg-red-600" style="display: none;"><i class="fa fa-trash-o"></i></button>
                                 </form>
 
-                                <div class="button">
-                                    <button class="friend-btn text-xl">+</button>
-                                </div>
+
 
                                 <div class="button">
                                     <a href="{{ route('chat.show', ['id' => $friend->id]) }}">
-                                        <button class="friend-btn text-xl"><i class="fas fa-comment-alt" style="font-size:1rem"></i></button>
+                                        <button class="friend-btn text-xl hover:bg-yellow-800"><i class="fas fa-comment-alt" style="font-size:1rem"></i></button>
                                     </a>
 
                                 </div>
+
+                                <div class="button">
+                                    <button class="friend-btn text-xl hover:bg-yellow-800">+</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -61,7 +64,7 @@
                 @endif
                 @if(!$AllFriends->isEmpty())
                 <div class="button">
-                    <button onclick="toggleRemoveButtons()" class="rmv-btn mt-10">Remove Friend</button>
+                    <button onclick="toggleRemoveButtons()" class="rmv-btn mt-10 hover:bg-yellow-800">Remove Friend</button>
                 </div>
                 @endif
             </div>
