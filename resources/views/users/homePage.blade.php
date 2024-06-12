@@ -17,7 +17,7 @@
         <div class="slider">
           <div class="item">
             <img src="assets/HomePage/EOY.jpg" alt="" />
-            <p class = info >Queen Of Tears</p>
+            <p class = info >Extraordinary you</p>
           </div>
           <div class="item">
             <img src="assets/HomePage/Qot.jpg" alt="" />
@@ -25,15 +25,15 @@
           </div>
           <div class="item">
             <img src="assets/HomePage/WYWS.jpg" alt="" />
-            <p class = info>Queen Of Tears</p>
+            <p class = info>While You Were Sleeping</p>
           </div>
           <div class="item">
             <img src="assets/HomePage/obs.jpg" alt="" />
-            <p class = info>Queen Of Tears</p>
+            <p class = info>Our Beloved Summer</p>
           </div>
           <div class="item">
             <img src="assets/HomePage/EOY.jpg" alt="" />
-            <p class = info>Queen Of Tears</p>
+            <p class = info>Extraordinary You</p>
           </div>
           <button id="next">></button>
           <button id="prev"><</button>

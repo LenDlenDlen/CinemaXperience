@@ -21,11 +21,10 @@
             </div>
             @endif
 
-
             @if($parties->isEmpty())
                 <div class="text-center">
-                    <div class="font-black">You haven't joined any party yet.</div>
-                    <a href="{{ route('wp.create') }}" class="btn btn-primary">Click here to create your party</a>
+                    <div class="font-black mb-4">You haven't joined any party yet.</div>
+                    <a href="{{ route('wp.create') }}" class="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-500 hover:text-black">Click here to create your party</a>
                 </div>
             @else
                 <div class="grid grid-cols-3 gap-4">

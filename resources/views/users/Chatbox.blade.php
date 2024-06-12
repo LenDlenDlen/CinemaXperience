@@ -12,7 +12,6 @@
     <div class="flex">
         @include('partials.sidebar-friend')
 
-        <div class="garis bg-stone-800 w-2 h- m-12"></div>
 
         <div class="w-3/4 mr-6 overflow-auto">
 
@@ -36,7 +35,7 @@
                     <span class="timeline justify-end text-xs text-gray-500 ml-2">{{ \Carbon\Carbon::parse($msg->created_at)->format('H:i') }}</span>
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
                 @else
                     <div class="relative flex opacity-20 place-content-center justify-items-center text-2xl mt-4">
                         <div>Start Chatting now</div>

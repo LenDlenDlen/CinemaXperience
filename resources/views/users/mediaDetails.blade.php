@@ -10,7 +10,7 @@
     <div class="flex flex-grow items-start justify-center mt-4">
         <div class="w-1/2 bg-zinc-900 p-6 rounded-md shadow-lg mx-4">
             <img src="{{ asset('storage/' . $media->poster) }}" alt="{{ $media->title }}" class="object-cover w-full h-96 rounded-md mb-4">
-            <h1 class="text-white text-3xl font-bold mb-2">{{ $media->title }}</h1>
+            <a href="{{ route('watch',  $media->id) }}"><h1 class="text-white text-3xl font-bold mb-2 hover:underline">{{ $media->title }}</h1></a>
             <p class="text-white mb-2">{{ $media->description }}</p>
             <p class="text-white mb-2">Rating: {{ $media->rating }}/10</p>
             <p class="text-white mb-2">Release Date: {{ $media->released_date }}</p>
