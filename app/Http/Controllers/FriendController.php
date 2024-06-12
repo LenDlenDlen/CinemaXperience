@@ -98,14 +98,14 @@ class FriendController extends Controller
 
     public function searchFriendByName(Request $request)
     {
-        $searchId = $request->input('name');
-        $searchResult = User::find($searchId);
+        $searchName = $request->input('name');
+        $searchResults = User::where('name', 'like', '%' . $searchName . '%')->where('role', '!=', 'admin')->get();
 
-        if (!$searchResult) {
+        if (!$searchResults) {
             return redirect()->route('addfriend')->with('error', 'No user found.');
         }
 
-        return view('users.addFriend', compact('searchResult'));
+        return view('users.addFriend', compact('searchResults'));
     }
 
     public function addFriend(Request $request)
